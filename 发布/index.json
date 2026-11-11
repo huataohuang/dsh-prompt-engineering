@@ -62,7 +62,9 @@
           "version": "0.2.2",
           "publishTimestamp": 1794316409,
           "source": {
-            "type": "npm"
+            "type": "git",
+            "url": "https://github.com/huataohuang/dsh-prompt-engineering",
+            "commit": "85608fd5de743091b70ed215a6a97fe551006af8"
           },
           "engines": {
             "dsh": ">=0.2.0 <0.3.0"

@@ -58,14 +58,31 @@ node scripts/pack.mjs
 dsh plugin --profile web add ./dist/dsh-prompt-engineering-0.2.2.tgz
 ```
 
-### 方式四：通过「发现」标签页安装（公开发布）
+### 方式四：从 GitHub 直接安装（已公开，不需要 npm 账号）
 
 ```bash
-node scripts/make-index.mjs --version 0.2.2 --channel npm --base-url https://<你的域名>/dsh-plugins/index.json
+dsh plugin --profile desktop add git+https://github.com/huataohuang/dsh-prompt-engineering.git#<40位commit>
 ```
 
-上传 `dist/index.json` 到静态托管，在 **插件 → 发现 → 索引源** 粘贴它的**最终 URL**。
-DSH 只接受 http(s)、无凭据、无 `#` 片段、**不重定向**的 URL；短链与会 302 的 CDN 不可用。
+`<40位commit>` 必须是 **40 位小写十六进制** commit，写分支名会被 DSH 校验器拒收。取当前最新：
+
+```bash
+git ls-remote https://github.com/huataohuang/dsh-prompt-engineering HEAD
+```
+
+本包是纯 JS、没有构建脚本，git 安装**不需要** pnpm 的 `allowBuilds` 许可。
+
+### 方式五：通过「发现」标签页安装（索引源分发）
+
+```bash
+node scripts/make-index.mjs --version 0.2.2 --channel git \
+  --git-url https://github.com/huataohuang/dsh-prompt-engineering \
+  --git-commit <40位commit> --out 发布/index.json
+```
+
+上传 `发布/index.json` 与 `发布/icon.svg` 到**同一目录**的静态托管，在 **插件 → 发现 → 索引源**
+粘贴索引的**最终 URL**。DSH 只接受 http(s)、无凭据、无 `#` 片段、**不重定向**的 URL；
+短链与会 302 的 CDN 不可用。
 
 ### 发布到 npm
 
