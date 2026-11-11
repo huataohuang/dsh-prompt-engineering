@@ -15,11 +15,12 @@
         cd <本仓库目录>
         node scripts/pack.mjs --dest dist
 
-3. 生成索引（把 --base-url 换成你索引的最终直链）：
+3. 生成索引（当前走 git 通道；npm 发布之后再改回 npm 通道）：
 
-        node scripts/make-index.mjs --version 0.2.2 --channel npm \
-          --base-url https://<你的域名>/dsh-plugins/index.json \
-          --timestamp $(date +%s) --out 发布/index.json
+        node scripts/make-index.mjs --version 0.2.2 --channel git \
+          --git-url https://github.com/huataohuang/dsh-prompt-engineering \
+          --git-commit <40位小写commit> \
+          --timestamp $(date +%s) --out docs/market/index.json
 
 4. 校验索引（用 DSH 官方 parseMarketIndex）：
 
@@ -51,7 +52,9 @@
 
 ## 阶段 3：托管索引（这一步做完才算「上架」）
 
-1. 把 发布/index.json 与 发布/icon.svg 上传到**同一个** https 静态目录（GitHub Pages / 对象存储 / 自有服务器都行）。
+1. 索引与图标已随仓库提交在 docs/market/。GitHub Pages 的源设为 **main 分支的 /docs 目录**后，最终直链即
+   https://huataohuang.github.io/dsh-prompt-engineering/market/index.json
+   （也可改用对象存储或自有服务器，只要把 index.json 与 icon.svg 放在同一目录）。
 2. 必须是**最终直链**：http(s)、无用户名密码、无 # 片段、**不经 302 跳转**（短链与带跳转的 CDN 会被 DSH 拒收）。
 3. 索引条目的 icon 写的是 icon.svg，相对索引地址解析，所以图标要和索引同目录。
 

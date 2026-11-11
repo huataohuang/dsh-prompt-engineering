@@ -251,10 +251,18 @@ Windows：
 3. **是否已至少启动过一次 Donnie**：没启动过就没有 profiles/desktop/package.json，2.3 会失败。
    让对方先打开一次 Donnie、再完全退出。
 
-## 附 2：更省事的长期方案（现在还不能用）
+## 附 2：更省事的长期方案（现已可用）
 
-插件目前**没有发布到 npm，也没有托管插件索引**，所以只能走上面的「文件传输 + 手动登记」。
-如果我这边先做两件事：一是 npm publish --access public 把 dsh-prompt-engineering 发上 npm；
-二是把 dist/index.json 传到任意静态托管并拿到最终 URL；
-那么对方只需要：**插件 → 发现 → 索引源 → 粘贴那个 URL → 安装 → 重启 Donnie**，
-不用开终端、不用改文件。需要走这条路就告诉我，我来准备这两步。
+插件已公开，两条路都不用再传文件：
+
+- **直接安装**（对方要开一次终端）：
+
+      dsh plugin --profile desktop add git+https://github.com/huataohuang/dsh-prompt-engineering.git#<40位commit>
+
+- **走「发现」标签页**（最省事，全程不开终端）：**插件 → 发现 → 索引源 → 粘贴**
+
+      https://huataohuang.github.io/dsh-prompt-engineering/market/index.json
+
+装完重启 Donnie。上面的「文件传输 + 手动登记」保留作离线兜底。
+
+注：npm 通道尚未发布（registry 查询 dsh-prompt-engineering 返回 404），当前可用的是 git 通道。

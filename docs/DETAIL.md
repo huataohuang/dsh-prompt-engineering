@@ -72,10 +72,14 @@
 
 ```bash
 node --test tests/host.spec.mjs tests/client.spec.mjs tests/index.spec.mjs tests/pack.spec.mjs tests/portability.spec.mjs
-node scripts/make-index.mjs --version X.Y.Z --channel npm --base-url <最终URL>
 node scripts/pack.mjs
-npm publish --access public
-# 把 dist/index.json 上传到静态托管（npm 通道建议用真实发布时间戳重跑 make-index）
+# 生成索引并提交：git 通道必须钉 40 位小写 commit；npm 发布之后再改回 npm 通道
+node scripts/make-index.mjs --version X.Y.Z --channel git \
+  --git-url https://github.com/huataohuang/dsh-prompt-engineering \
+  --git-commit <40位小写commit> --out docs/market/index.json
+git add -A && git commit -m "release: X.Y.Z" && git push
+# GitHub Pages 从 main 分支的 /docs 目录发布，索引直链即
+# https://huataohuang.github.io/dsh-prompt-engineering/market/index.json
 ```
 
 发布前检查清单：版本与 `engines.dsh` 对齐当前 DSH；tarball 含全部运行时文件（pack.mjs 会强制校验）；

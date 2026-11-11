@@ -74,15 +74,22 @@ git ls-remote https://github.com/huataohuang/dsh-prompt-engineering HEAD
 
 ### 方式五：通过「发现」标签页安装（索引源分发）
 
+索引随仓库提交在 `docs/market/`，由 GitHub Pages 托管。直接在 **插件 → 发现 → 索引源** 粘贴：
+
+```
+https://huataohuang.github.io/dsh-prompt-engineering/market/index.json
+```
+
+发新版本时重新生成索引（`--out` 固定指向该目录）：
+
 ```bash
 node scripts/make-index.mjs --version 0.2.2 --channel git \
   --git-url https://github.com/huataohuang/dsh-prompt-engineering \
-  --git-commit <40位commit> --out 发布/index.json
+  --git-commit <40位commit> --out docs/market/index.json
 ```
 
-上传 `发布/index.json` 与 `发布/icon.svg` 到**同一目录**的静态托管，在 **插件 → 发现 → 索引源**
-粘贴索引的**最终 URL**。DSH 只接受 http(s)、无凭据、无 `#` 片段、**不重定向**的 URL；
-短链与会 302 的 CDN 不可用。
+`index.json` 与 `icon.svg` 必须留在**同一目录**（索引里图标写的是相对路径 `icon.svg`）。
+DSH 只接受 http(s)、无凭据、无 `#` 片段、**不重定向**的最终 URL；短链与会 302 的 CDN 不可用。
 
 ### 发布到 npm
 
