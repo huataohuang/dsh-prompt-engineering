@@ -1,0 +1,53 @@
+{
+  "name": "dsh-prompt-engineering",
+  "version": "0.2.2",
+  "description": "One-click prompt engineering beside the composer: rewrite the draft into a professional prompt in place.",
+  "type": "module",
+  "license": "MIT",
+  "icon": "./icon.svg",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./package.json": "./package.json",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "icon.svg",
+    "README.md",
+    "docs"
+  ],
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "prompt-engineering",
+    "prompt",
+    "composer"
+  ],
+  "scripts": {
+    "test": "node --test tests/host.spec.mjs tests/client.spec.mjs tests/index.spec.mjs tests/pack.spec.mjs tests/portability.spec.mjs",
+    "pack": "node scripts/pack.mjs",
+    "index": "node scripts/make-index.mjs",
+    "install": "node scripts/install-profile.mjs"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-renderer",
+        "@deepseek-ai/dsh-client-ui-conversation"
+      ]
+    }
+  },
+  "engines": {
+    "dsh": ">=0.2.0 <0.3.0"
+  }
+}

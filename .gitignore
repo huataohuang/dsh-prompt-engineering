@@ -1,0 +1,26 @@
+# ---- 构建产物（scripts/pack.mjs 生成，可随时重建）----
+dist/
+node_modules/
+
+# ---- 安装器写下的 profile 备份（含本机路径等个人信息）----
+_profile-backup/
+*.bak
+
+# ---- 日志 ----
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# ---- 密钥与环境变量：永远不要提交 ----
+.env
+.env.*
+*.key
+*.pem
+.credentials.yaml
+
+# ---- 编辑器与系统 ----
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini

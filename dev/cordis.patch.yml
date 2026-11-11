@@ -1,0 +1,11 @@
+# 开发期装载层：直接用源码目录里的宿主半，绕过 profile 安装。
+# 客户端半仍由该目录下 package.json 的 dsh.client 声明进入浏览器模块图
+# （Loader 条目名取自最近的 package.json，即 dsh-prompt-engineering）。
+#
+# 用法：把下面的 <本仓库绝对路径> 换成你这台机器上本仓库的绝对路径后再生效。
+# 仓库内不携带任何个人绝对路径，换机器只需改这一行。
+#   macOS/Linux: /Users/you/code/dsh-prompt-engineering/index.js
+#   Windows:     D:/Github/dsh-prompt-engineering/index.js
+- insert:
+    - id: prompt-engineering
+      name: '<本仓库绝对路径>/index.js'

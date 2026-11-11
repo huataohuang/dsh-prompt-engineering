@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Prompt engineering">
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="#F2E8D9"/>
+  <path d="M32 9l3.6 9.1 9.4 3.4-9.4 3.4L32 34l-3.6-9.1-9.4-3.4 9.4-3.4z" fill="#6E4526"/>
+  <path d="M47 33l2.1 5.3 5.4 1.9-5.4 1.9L47 47.4l-2.1-5.3-5.4-1.9 5.4-1.9z" fill="#C2703C"/>
+  <rect x="14" y="43" width="22" height="3.4" rx="1.7" fill="#6E4526" opacity="0.85"/>
+  <rect x="14" y="50" width="14" height="3.4" rx="1.7" fill="#6E4526" opacity="0.5"/>
+</svg>

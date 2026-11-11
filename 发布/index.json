@@ -1,0 +1,74 @@
+{
+  "format": 1,
+  "title": {
+    "zh": "元枢插件",
+    "en": "YuanShu plugins"
+  },
+  "description": {
+    "zh": "自建 DSH 插件索引：收录元枢出品的可选插件。",
+    "en": "Self-hosted DSH plugin index for optional plugins published by YuanShu."
+  },
+  "metadata": {
+    "categories": {
+      "input": {
+        "title": {
+          "zh": "输入",
+          "en": "Input"
+        }
+      },
+      "display": {
+        "title": {
+          "zh": "显示",
+          "en": "Display"
+        }
+      }
+    },
+    "labels": {
+      "third-party": {
+        "title": {
+          "zh": "第三方",
+          "en": "Third-party"
+        }
+      },
+      "prompt": {
+        "title": {
+          "zh": "提示词",
+          "en": "Prompt"
+        }
+      }
+    }
+  },
+  "plugins": [
+    {
+      "name": "dsh-prompt-engineering",
+      "title": {
+        "zh": "提示词工程",
+        "en": "Prompt engineering"
+      },
+      "description": {
+        "zh": "发送区一个星芒图标，点一下就把输入框里的草稿改写成更专业的提示词，直接替换回输入框。",
+        "en": "A sparkle icon in the composer: one click rewrites the draft into a professional prompt and puts it back in place."
+      },
+      "icon": "icon.svg",
+      "metadata": {
+        "category": "input",
+        "labels": [
+          "third-party",
+          "prompt"
+        ]
+      },
+      "versions": [
+        {
+          "version": "0.2.2",
+          "publishTimestamp": 1794316409,
+          "source": {
+            "type": "npm"
+          },
+          "engines": {
+            "dsh": ">=0.2.0 <0.3.0"
+          }
+        }
+      ]
+    }
+  ]
+}

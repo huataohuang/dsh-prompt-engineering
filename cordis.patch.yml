@@ -1,0 +1,6 @@
+# 提示词工程（dsh-prompt-engineering）的装载层。
+# 宿主半 index.js 注册 /api/prompt-engineering/optimize 路由；
+# 客户端半由 package.json 的 dsh.client 声明自动进入浏览器模块图。
+- insert:
+    - id: prompt-engineering
+      name: 'dsh-prompt-engineering'
